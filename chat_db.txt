@@ -1,0 +1,5 @@
+Nadav|22/02/26 14:30|Just pushed the final fixes. The std::atomic<bool> completely resolved the data races during graceful shutdown!
+Tomer|22/02/26 12:15|The Keep-Alive loop is working perfectly now. Setting the 5-second socket timeout stopped the threads from starving.
+Maya|22/02/26 10:05|Did we test the O(1) unordered_map for MIME types? It is definitely faster than the old if-else chain.
+Yael|21/02/26 23:45|I love the Post/Redirect/Get pattern on the chat route. No more duplicate form submissions when hitting refresh!
+Nadav|21/02/26 23:15|Finally got Clang-Tidy to stop complaining. Using C++20 raw string literals for the HTML dashboard looks so much cleaner.

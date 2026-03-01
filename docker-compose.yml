@@ -1,0 +1,29 @@
+
+services:
+  # --- DATABASE SERVICE ---
+  db:
+    image: postgres:15 # Uses the official PostgreSQL version 15 image from Docker Hub
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: huji_chat
+    ports:
+      - "5432:5432" # Maps [Host Port]:[Container Port]
+    volumes:
+      # Maps a Docker volume to the internal Postgres data folder.
+      - pg_data:/var/lib/postgresql/data
+
+  # --- C++ SERVER SERVICE ---
+  server:
+    build: . # look for a 'Dockerfile' in the current directory to build the image
+    ports:
+      - "9090:8080" # Maps the browser's localhost:9090 to the server's internal 8080
+    environment:
+      - PORT=8080
+      - DB_URL=postgresql://user:password@db:5432/huji_chat
+    depends_on:
+      - db # Ensures the database container starts before the server container
+
+# Define the named volume used for database storage
+volumes:
+  pg_data:

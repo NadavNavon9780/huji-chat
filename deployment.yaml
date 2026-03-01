@@ -1,0 +1,31 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: huji-chat-server
+spec:
+  # Ensures exactly 3 identical copies are always running.
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: chat-server # Used to track which copies belong to this deployment
+  template:
+    metadata:
+      labels:
+        app: chat-server
+    spec:
+      containers:
+      - name: server
+        image: nadav/huji-chat-server:latest # The image
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_URL
+          value: "postgresql://user:password@db-service:5432/huji_chat"
+
+        livenessProbe:
+          httpGet:
+            path: /health # Pings the C++ /health route
+            port: 8080
+          initialDelaySeconds: 5 # Wait 5s for the app to boot before checking
+          periodSeconds: 10      # Check every 10s. If it fails 3 times, K8s restarts the container.

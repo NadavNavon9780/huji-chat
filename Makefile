@@ -17,7 +17,7 @@ all: $(BIN)
 
 # Link the executable
 $(BIN): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(BIN)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(BIN) -lpqxx -lpq
 
 # Compile source files to object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)

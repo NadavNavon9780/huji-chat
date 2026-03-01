@@ -49,12 +49,12 @@ cmake_ninja_workdir = /Users/nadavnavon/CLionProjects/Project1/cmake-build-debug
 
 build cmake_object_order_depends_target_Project1: phony || .
 
-build CMakeFiles/Project1.dir/main.cpp.o: CXX_COMPILER__Project1_unscanned_Debug /Users/nadavnavon/CLionProjects/Project1/main.cpp || cmake_object_order_depends_target_Project1
-  DEP_FILE = CMakeFiles/Project1.dir/main.cpp.o.d
+build CMakeFiles/Project1.dir/src/main.cpp.o: CXX_COMPILER__Project1_unscanned_Debug /Users/nadavnavon/CLionProjects/Project1/src/main.cpp || cmake_object_order_depends_target_Project1
+  DEP_FILE = CMakeFiles/Project1.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
   INCLUDES = -I/Users/nadavnavon/CLionProjects/Project1/include
   OBJECT_DIR = CMakeFiles/Project1.dir
-  OBJECT_FILE_DIR = CMakeFiles/Project1.dir
+  OBJECT_FILE_DIR = CMakeFiles/Project1.dir/src
 
 build CMakeFiles/Project1.dir/src/Common.cpp.o: CXX_COMPILER__Project1_unscanned_Debug /Users/nadavnavon/CLionProjects/Project1/src/Common.cpp || cmake_object_order_depends_target_Project1
   DEP_FILE = CMakeFiles/Project1.dir/src/Common.cpp.o.d
@@ -85,7 +85,7 @@ build CMakeFiles/Project1.dir/src/Server.cpp.o: CXX_COMPILER__Project1_unscanned
 #############################################
 # Link the executable Project1
 
-build Project1: CXX_EXECUTABLE_LINKER__Project1_Debug CMakeFiles/Project1.dir/main.cpp.o CMakeFiles/Project1.dir/src/Common.cpp.o CMakeFiles/Project1.dir/src/Parsers.cpp.o CMakeFiles/Project1.dir/src/Server.cpp.o
+build Project1: CXX_EXECUTABLE_LINKER__Project1_Debug CMakeFiles/Project1.dir/src/main.cpp.o CMakeFiles/Project1.dir/src/Common.cpp.o CMakeFiles/Project1.dir/src/Parsers.cpp.o CMakeFiles/Project1.dir/src/Server.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6
   OBJECT_DIR = CMakeFiles/Project1.dir
   POST_BUILD = :
